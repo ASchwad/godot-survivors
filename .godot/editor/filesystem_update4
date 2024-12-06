@@ -1,0 +1,5 @@
+res://Enemy/enemy.tscn
+res://Player/player.tscn
+res://Utils/hitbox.tscn
+res://Utils/hurtbox.tscn
+res://Utils/enemy_spawner.tscn
