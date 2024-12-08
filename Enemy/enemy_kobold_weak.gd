@@ -24,4 +24,5 @@ func _physics_process(_delta: float) -> void:
 func _on_hurtbox_hurt(damage: Variant) -> void:
 	hp -= damage
 	if hp <= 0:
+		await get_tree().create_timer(0.1).timeout
 		queue_free()

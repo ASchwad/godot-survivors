@@ -3,3 +3,11 @@ res://Player/player.tscn
 res://Utils/hitbox.tscn
 res://Utils/hurtbox.tscn
 res://Utils/enemy_spawner.tscn
+res://Utils/enemy_spawner.gd
+res://World/world.tscn
+res://Player/Attack/icespear.tscn
+res://Player/Attack/icespear.gd
+res://Player/player.gd
+res://Enemy/enemy_kobold_weak.gd
+res://Utils/hurtbox.gd
+res://World/canvas_layer.gd

@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dembmfcl6byae" path="res://Textures/dirt_full_new.png" id="1_44kve"]
 [ext_resource type="Script" path="res://Utils/enemy_spawner.gd" id="1_vwvfv"]
 [ext_resource type="PackedScene" uid="uid://bl81l4htxmib1" path="res://Player/player.tscn" id="2_2oagc"]
-[ext_resource type="PackedScene" uid="uid://3u1aq16s48gb" path="res://Enemy/enemy.tscn" id="3_cfwhd"]
 [ext_resource type="PackedScene" uid="uid://bjnxy7kpsa784" path="res://Utils/enemy_spawner.tscn" id="5_a5x4i"]
+[ext_resource type="Script" path="res://World/canvas_layer.gd" id="6_kw0ky"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_vwvfv")
@@ -18,6 +18,17 @@ region_rect = Rect2(0, 0, 4000, 4000)
 [node name="Player" parent="." instance=ExtResource("2_2oagc")]
 position = Vector2(150, -50)
 
-[node name="Enemy" parent="." instance=ExtResource("3_cfwhd")]
-
 [node name="EnemySpawner" parent="." instance=ExtResource("5_a5x4i")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("6_kw0ky")
+
+[node name="HP" type="Label" parent="CanvasLayer"]
+offset_left = 22.0
+offset_top = 21.0
+offset_right = 48.0
+offset_bottom = 44.0
+text = "HP"
+
+[connection signal="hidden" from="." to="." method="_on_hidden"]
