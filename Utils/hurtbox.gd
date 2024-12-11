@@ -15,6 +15,7 @@ This is currently used
 signal hurt(damage)
 
 func _on_area_entered(area: Area2D) -> void:
+	print("entered")
 	if area.is_in_group("attack"):
 		if not area.get("damage") == null:
 			match HurtBoxType:
@@ -30,6 +31,9 @@ func _on_area_entered(area: Area2D) -> void:
 			emit_signal("hurt", damage)
 			if area.has_method("enemy_hit"):
 				area.enemy_hit(1);
+		else:
+			print("EMITTING")
+			emit_signal("hurt", 2)
 
 
 func _on_disable_timer_timeout() -> void:

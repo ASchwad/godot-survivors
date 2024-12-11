@@ -32,8 +32,10 @@ func death():
 	queue_free()
 
 func _on_hurtbox_hurt(damage: Variant) -> void:
+	print("got ", damage)
 	sound_hit.play()
 	hp -= damage
+	print("remaining hp", hp)
 	if hp <= 0:
 		death()
 		await get_tree().create_timer(0.1).timeout

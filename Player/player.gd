@@ -11,6 +11,7 @@ var icespear = preload("res://Player/Attack/icespear.tscn")
 
 @onready var icespearTimer : Timer = get_node("Attack/IcespearTimer")
 @onready var icespearAttackTimer : Timer = get_node("Attack/IcespearTimer/IcespearAttackTimer")
+@onready var animatedSprite : AnimatedSprite2D = get_node("Sprite2D/Meele Attack/SwordHit/AnimatedSprite2D")
 
 var icespear_ammo = 0
 var icespear_baseammo = 1
@@ -21,6 +22,7 @@ var enemy_close = []
 
 func _ready():
 	attack()
+	animatedSprite.visible = false
 
 func attack():
 	if icespear_level > 0:
@@ -31,6 +33,9 @@ func attack():
 
 func _physics_process(delta: float) -> void:
 	movement()
+	if Input.get_action_strength("slash") == 1.0:
+		animatedSprite.visible = true
+		$AnimationPlayer.play("sword_slash")
 	
 func movement():
 	# var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -107,3 +112,12 @@ func _on_enemy_detection_area_body_entered(body: Node2D) -> void:
 func _on_enemy_detection_area_body_exited(body: Node2D) -> void:
 	if enemy_close.has(body):
 		enemy_close.erase(body)
+
+
+func _on_sword_hit_area_entered(area: Area2D) -> void:
+	print("HIT AREA")
+
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	if animatedSprite.frame == (animatedSprite.sprite_frames.get_frame_count("default") / 2 - 1):
+		animatedSprite.visible = false
