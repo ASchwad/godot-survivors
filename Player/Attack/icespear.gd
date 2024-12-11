@@ -13,7 +13,6 @@ var angle = Vector2.ZERO
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var shoot_sound = get_node("sound_play")
 
-
 func _ready() -> void:
 	angle = global_position.direction_to(target)
 	# Icespear png is in -45° angle - therefore we add 135 degree to make it aligned

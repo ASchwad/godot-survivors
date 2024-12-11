@@ -11,3 +11,5 @@ res://Player/player.gd
 res://Enemy/enemy_kobold_weak.gd
 res://Utils/hurtbox.gd
 res://World/canvas_layer.gd
+res://Enemy/explosion.gd
+res://Enemy/explosion.tscn
